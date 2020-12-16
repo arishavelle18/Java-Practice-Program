@@ -1,0 +1,44 @@
+import java.util.Arrays; 
+import java.util.Scanner;
+
+public class Amalgamate {
+
+    static final Scanner input = new Scanner(System.in);
+
+    public static void main(String[] args)
+    {
+        System.out.print("Enter the size 1st Array : ");
+        int sizeArray1 = input.nextInt();
+        int[] firstArray= new int[sizeArray1];
+        int i;
+
+        for(i=0;i<firstArray.length;i++)
+        {
+            System.out.print("Element "+(i+1)+" :");
+            firstArray[i] = input.nextInt();
+
+        }
+        System.out.print("Enter the size 2nd Array : ");
+        int sizeArray2 = input.nextInt();
+        int[] secondArray= new int[sizeArray2];
+
+        for(i=0;i<secondArray.length;i++)
+        {
+            System.out.print("Element "+(i+1)+" :");
+            secondArray[i] = input.nextInt();
+        }
+
+        int[] mergeArray = new int[sizeArray1+sizeArray2];
+
+        System.arraycopy(firstArray, 0, mergeArray, 0, sizeArray1);
+        System.arraycopy(secondArray, 0, mergeArray, sizeArray1, sizeArray2);
+
+        Arrays.sort(mergeArray);
+
+        System.out.println("Result : ");
+        for(i=0;i<mergeArray.length;i++)
+        {
+            System.out.println(mergeArray[i]);
+        }
+    }
+}
